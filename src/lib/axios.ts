@@ -1,6 +1,6 @@
-import Axios from 'axios';
+import axios from 'axios';
 
-const axios = Axios.create({
+const Axios = axios.create({
   baseURL: 'http://127.0.0.1:8000/api',
   // withCredentials: true,
   xsrfCookieName: 'XSRF-TOKEN',
@@ -14,4 +14,4 @@ axios.interceptors.response.use(null, (err) => {
   console.log(err);
 });
 
-export default axios;
+export default Axios;

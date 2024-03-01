@@ -5,8 +5,8 @@ import { useCallback, useState } from 'react';
 import { Button } from '../../../components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import Input from '@/pages/AuthPage/components/input';
-// import axios from '@/lib/axios';
-import axios from 'axios';
+import Axios from '@/lib/axios';
+// import axios from 'axios';
 // import * as Yup from 'yup';
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -73,7 +73,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const handleLogin = async (event: any) => {
     event.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:8000/api/login', { email, password });
+      await Axios.post('/login', { email, password });
       setEmail('');
       setPassword('');
       navigate('/dashboard');
@@ -87,7 +87,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const handleRegister = async (event: any) => {
     event.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:8000/api/register', {
+      await Axios.post('/register', {
         name,
         email,
         password,
